@@ -1,0 +1,63 @@
+<meta charset="utf-8">
+<title>Js Level 2</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script src="js/angular.min.js"></script>
+<!--<script src="js/componet.js"></script>
+<script src="js/app.js"></script>-->
+<script>
+    function changeColor(){
+        var bgDiv = document.getElementsByClassName('bg');
+        var randomArray = [];
+        var data = {};
+        for(var i = 0; i < bgDiv.length; i++) {
+            var x1=bgDiv[i];
+            var id=x1.id;
+            var n= Math.floor(Math.random()*9)+1;
+            randomArray[i]=n;
+            var r= Math.floor(Math.random()*256); //range 0-255
+            var g= Math.floor(Math.random()*256); //range 0-255
+            var b= Math.floor(Math.random()*256); //range 0-255
+            var color = "rgb(" + r + "," + g + "," + b + ")";
+            !data[n] && ( data[n] = color);
+            x1.innerHTML = data[n]  + "</br>" + n + "</br> Div id: " + id;
+            x1.style.backgroundColor =  data[n];
+        }
+        document.getElementById("randomArray").innerHTML = randomArray;
+        //x1.innerHTML = Math.floor((Math.random()* 10000000) + 1000000).toString(16) + "</br>" + n;
+    }
+    window.onload = changeColor;
+    window.onresize = changeColor ;
+</script>
+<!--=================Learn Js====================-->
+<body><!--onload="changeColor()"-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="clr1 bg" id="c1">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="clr2 bg" id="c2">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="clr3 bg" id="c3">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="clr4 bg" id="c4">
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <h4 class="" id="randomArray">
+                    ArrayList
+                </h4>
+            </div>
+            <div class="col-sm-12 text-center">
+                <button type="button" class="btn btn-primary" onclick="changeColor();">Click To Change The Div Color</button>
+            </div>
+        </div>
+    </div>
+</body>
+

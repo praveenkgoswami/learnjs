@@ -1,0 +1,61 @@
+<meta charset="utf-8">
+<title>Js Level 1</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script src="js/angular.min.js"></script>
+<!--<script src="js/componet.js"></script>
+<script src="js/app.js"></script>-->
+<script>
+    function splitString(){
+        var str1 = "Dubai Parks and Resorts, United Arab Emirates, 22 Aug - 23 Aug";
+        //var str1 = document.getElementById("input-string").value;
+        var f = str1.split(" ");
+        var i, b, z;
+        var splittedString = [ ];
+        for(i=0; i<f.length; i++){
+            b = f[i];
+            if(b.indexOf(",") !== -1){
+                z= b.substr(0, b.length - 1);
+                /*console.log(z);*/
+                splittedString[i] = z;
+                document.getElementById("splitted-string").innerHTML = splittedString + " ";
+            }
+            else if(Number.isInteger(parseInt(b))){
+                z = b.replace(b , '');
+                splittedString[i] = z;
+                //document.getElementById("splitted-string").innerHTML = splittedString + " ";
+            }
+            else if(b.indexOf("-") !== -1){
+                z = b.replace(b , '');
+                splittedString[i] = z;
+                //document.getElementById("splitted-string").innerHTML = splittedString + " ";
+            }
+            else{
+                z= b.substr(0, b.length);
+                /*console.log(z);*/
+                splittedString[i] = z;
+                document.getElementById("splitted-string").innerHTML = splittedString + " ";
+             }
+        }
+    }
+</script>
+<!--=================Learn Js====================-->
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="inner-container">
+                    <!--<div class="form-group">
+                        <input type="text" class="form-control" placeholder="please enter string to split words" id="input-string" required="required"/>
+                    </div>-->
+                    <h4 class="form-group" id="splitted-string">
+                        Dubai Parks and Resorts, United Arab Emirates, 22 Aug - 23 Aug
+                    </h4>
+                    <div class="form-group text-center">
+                        <button type="button" class="btn btn-primary" onclick="splitString();">Click To Split String</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

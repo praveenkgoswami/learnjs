@@ -1,0 +1,61 @@
+<meta charset="utf-8">
+<title>Js Level 3</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<script src="js/angular.min.js"></script>
+<!--<script src="js/componet.js"></script>
+<script src="js/app.js"></script>-->
+<script>
+    var keyPressed = document.querySelectorAll(".mid-container span");
+    var i;
+    for(i=0; i<keyPressed.length; i++){
+        keyPressed[i].onclick(function (e) {
+            var input = document.querySelector(".screen");
+            alert("Hello");
+            console.log(keyPressed);
+        });
+    }
+</script>
+<!--=================Learn Js====================-->
+<body><!--onload="changeColor()"-->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="inner-container" id="calculator">
+                <h4 class="text-center">Calculator</h4>
+                <div class="top-container">
+                    <span class="screen"></span>
+                    <span class="reset">CE</span>
+                </div>
+                <div class="mid-container">
+                    <div class="cal-row">
+                        <span class="">9</span>
+                        <span class="">8</span>
+                        <span class="">7</span>
+                        <span class="operator">/</span>
+                    </div>
+                    <div class="cal-row">
+                        <span class="">6</span>
+                        <span class="">5</span>
+                        <span class="">4</span>
+                        <span class="operator">*</span>
+                    </div>
+                    <div class="cal-row">
+                        <span class="">3</span>
+                        <span class="">2</span>
+                        <span class="">1</span>
+                        <span class="operator">-</span>
+                    </div>
+                    <div class="cal-row">
+                        <span class="eval">=</span>
+                        <span class="">0</span>
+                        <span class="">.</span>
+                        <span class="operator">+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
