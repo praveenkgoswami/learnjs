@@ -6,15 +6,32 @@
 <!--<script src="js/componet.js"></script>
 <script src="js/app.js"></script>-->
 <script>
-    var keyPressed = document.querySelectorAll(".mid-container span");
-    var i;
-    for(i=0; i<keyPressed.length; i++){
-        keyPressed[i].onclick(function (e) {
-            var input = document.querySelector(".screen");
-            alert("Hello");
-            console.log(keyPressed);
-        });
+    function calculator() {
+        var keys = document.querySelectorAll('.calculator span');
+        var i;
+        var keyPressed = {};
+        for(i=0; i<keys.length; i++){
+            keys[i].addEventListener("click", function (e) {
+                var clickedbtn = e.target.innerHTML;
+                if(isNaN(clickedbtn)){
+                    var clickedbtnClass = e.target.className;
+                    console.log(clickedbtnClass);
+                    if(clickedbtnClass == "reset"){
+                        document.querySelector(".screen").innerHTML = "";
+                    }
+                    else if(clickedbtnClass == "operator"){
+                        document.querySelector(".screen").innerHTML += clickedbtn;
+                    }
+                }else{
+                    //keyPressed[clickedbtn] = clickedbtn;
+                    var input = document.querySelector(".screen");
+                    input.innerHTML += clickedbtn;
+                    console.log("Clicked: " + clickedbtn);
+                }
+            });
+        }
     }
+    window.onload = calculator;
 </script>
 <!--=================Learn Js====================-->
 <body>
