@@ -9,39 +9,86 @@
     function calculator() {
         var keys = document.querySelectorAll('.calculator span');
         var i;
+        var result = 0;
         var keyPressed = {};
         for(i=0; i<keys.length; i++){
             keys[i].addEventListener("click", function (e) {
                 var clickedbtn = e.target.innerHTML;
                 if(isNaN(clickedbtn)){
                     var clickedbtnClass = e.target.className;
-                    console.log(clickedbtnClass);
-                    if(clickedbtnClass == "reset"){
-                        document.querySelector(".screen").innerHTML = "";
+                    if(clickedbtnClass === "reset"){
+                        document.querySelector(".screen").value = "0";
                     }
-                    else if(clickedbtnClass == "operator"){
-                        document.querySelector(".screen").innerHTML += clickedbtn;
+                    else if(clickedbtnClass === "operator"){
+                        document.querySelector(".screen").value += clickedbtn;
+                    }
+                    else if(clickedbtnClass === "eval"){
+                        result = document.querySelector(".screen").value;
+                        alert(result);
                     }
                 }else{
                     //keyPressed[clickedbtn] = clickedbtn;
                     var input = document.querySelector(".screen");
-                    input.innerHTML += clickedbtn;
-                    console.log("Clicked: " + clickedbtn);
+                    input.value += clickedbtn;
+                    //console.log("Clicked: " + clickedbtn + "," + result);
                 }
             });
         }
     }
     window.onload = calculator;
 </script>
+<script>
+    var a,b, result;
+    function setValues(){
+        a=Number(document.getElementById("a").value);
+        b=Number(document.getElementById("b").value);
+    }
+    function sum() {
+        setValues();
+        result = a+b;
+        console.log("The sum is equals to " + result)
+    }
+    function rest() {
+        setValues();
+        result = a-b;
+        console.log("The rest is equals to " + result)
+    }
+    function mult() {
+        setValues();
+        result = a*b;
+        console.log("The operation is equals to " + result)
+    }
+    function div() {
+        setValues();
+        result = a/b;
+        console.log("The divide is equals to " + result)
+    }
+
+</script>
+<script>
+    function displynum(n1) {
+        calcForm.txt1.value = calcForm.txt1.value+n1;
+    }
+</script>
 <!--=================Learn Js====================-->
 <body>
 <div class="container">
     <div class="row">
         <div class="col-sm-4 col-sm-offset-4">
+            <!--==========Simple Calculator Using js===========-->
+            <div class="simpleCalc">
+                <input id="a" type="text">
+                <input id="b" type="text">
+                <input type="button" onclick="sum()" value="sum">
+                <input type="button" onclick="rest()" value="rest">
+                <input type="button" onclick="mult()" value="multiply">
+                <input type="button" onclick="div()" value="divide">
+            </div>
+            <!--==========Calculator Using js===========-->
             <div class="calculator" id="calculator">
                 <h4 class="text-center">Calculator</h4>
                 <div class="top-container">
-                    <span class="screen"></span>
+                    <input type="text" class="screen"></input>
                     <span class="reset">CE</span>
                 </div>
                 <div class="mid-container">
@@ -70,6 +117,29 @@
                         <span class="operator">+</span>
                     </div>
                 </div>
+            </div>
+            <!--==========Calculator 2 Using js===========-->
+            <div>
+                <form name="calcForm">
+                    <input type="text" name="txt1" style="text-align: right">
+                    <input type="button" name="clearbtn" value="" onclick="txt1.value=clearbtn.value"><br>
+                    <input type="button" name="btn9" value="9" onclick="displynum(btn9.value)">
+                    <input type="button" name="btn8" value="8" onclick="displynum(btn8.value)">
+                    <input type="button" name="btn7" value="7" onclick="displynum(btn7.value)">
+                    <input type="button" name="addbtn" value="+" onclick="displynum(addbtn.value)"><br>
+                    <input type="button" name="btn6" value="6" onclick="displynum(btn6.value)">
+                    <input type="button" name="btn5" value="5" onclick="displynum(btn5.value)">
+                    <input type="button" name="btn4" value="4" onclick="displynum(btn4.value)">
+                    <input type="button" name="subbtn" value="-" onclick="displynum(subbtn.value)"><br>
+                    <input type="button" name="btn3" value="3" onclick="displynum(btn3.value)">
+                    <input type="button" name="btn2" value="2" onclick="displynum(btn2.value)">
+                    <input type="button" name="btn1" value="1" onclick="displynum(btn1.value)">
+                    <input type="button" name="btnmul" value="*" onclick="displynum(btnmul.value)"><br>
+                    <input type="button" name="btn0" value="0" onclick="displynum(btn0.value)">
+                    <input type="button" name="potbtn" value="." onclick="displynum(potbtn.value)">
+                    <input type="button" name="evalbtn" value="=" onclick="Math.floor(txt1.value=eval(txt1.value))">
+                    <input type="button" name="divbtn" value="/" onclick="displynum(divbtn.value)"><br>
+                </form>
             </div>
         </div>
     </div>
