@@ -14,7 +14,11 @@
         for(i=0; i<keys.length; i++){
             keys[i].addEventListener("click", function (e) {
                 var clickedbtn = e.target.innerHTML;
-                if(isNaN(clickedbtn)){
+                console.log(clickedbtn);
+                var inpt = document.getElementsByClassName("screen").innerHTML;
+                console.log(inpt);
+                //calcId.calcInput.value = calcId.calcInput.value+clickedbtn;
+                /*if(isNaN(clickedbtn)){
                     var clickedbtnClass = e.target.className;
                     if(clickedbtnClass === "reset"){
                         document.querySelector(".screen").value = "0";
@@ -31,7 +35,7 @@
                     var input = document.querySelector(".screen");
                     input.value += clickedbtn;
                     //console.log("Clicked: " + clickedbtn + "," + result);
-                }
+                }*/
             });
         }
     }
@@ -88,7 +92,7 @@
             <div class="calculator" id="calculator">
                 <h4 class="text-center">Calculator</h4>
                 <div class="top-container">
-                    <input type="text" class="screen"></input>
+                    <input type="text" class="screen" name="calcInput">
                     <span class="reset">CE</span>
                 </div>
                 <div class="mid-container">
